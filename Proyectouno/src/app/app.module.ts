@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
@@ -13,7 +13,7 @@ import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { ProjectViewComponent } from './proyecto-view/project-view.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ProyectosService } from '@app/_services/proyecto.service';
+import { ProyectosService } from '@app/_services/proyectos.service';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
 import { EstadosCrudComponent } from './estados-crud/estados-crud.component';
 
@@ -23,6 +23,7 @@ import { EstadosCrudComponent } from './estados-crud/estados-crud.component';
         ReactiveFormsModule,
         HttpClientModule,
         AppRoutingModule,
+        FormsModule,
         DragDropModule
     ],
     declarations: [

@@ -12,29 +12,15 @@ export class ProjectViewComponent implements OnInit {
 
   constructor() { }
 
-  board: Board = new Board('Test Board', [
+  board: Board = new Board('Tareas', [
     new Column('Ideas', [
-      "Some random idea",
-      "This is another random idea",
-      "build an awesome application"
+      //cargar tareas
     ]),
     new Column('Research', [
-      "Lorem ipsum",
-      "foo",
-      "This was in the 'Research' column"
     ]),
     new Column('Todo', [
-      'Get to work',
-      'Pick up groceries',
-      'Go home',
-      'Fall asleep'
     ]),
     new Column('Done', [
-      'Get up',
-      'Brush teeth',
-      'Take a shower',
-      'Check e-mail',
-      'Walk dog'
     ])
   ]);
 

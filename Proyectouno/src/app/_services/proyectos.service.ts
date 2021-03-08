@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Proyecto } from '@app/_models/proyecto';
+import { Proyectos } from '@app/_models/proyecto';
 
 @Injectable()
 export class ProyectosService {
-  data: Proyecto[];
+  data: Proyectos[];
   constructor() {
     this.data = JSON.parse(localStorage.getItem('proyectos') || '[]');
   }
@@ -13,7 +13,7 @@ export class ProyectosService {
     return this.data;
   }
 
-  save(data: Proyecto[]) {
+  save(data: Proyectos[]) {
     this.data = data;
     localStorage.setItem('proyectos', JSON.stringify(this.data));
   }
