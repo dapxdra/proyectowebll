@@ -1,0 +1,60 @@
+<div class="form-inline" *ngIf="crud_operation.is_visible">
+    <legend>Task Manager</legend>
+      <label>Id:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_proyectos.id">
+      <label>Name:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_proyectos.name">
+      <label>Priority:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_proyectos.icon">
+      <label>Start date:</label>
+      <input class="form-control" type="date" size="5px" [(ngModel)]="current_proyectos.date">
+      <label>Number people:</label>
+      <input class="form-control" type="number" size="5px" [(ngModel)]="current_proyectos.people">
+      <button class="btn btn-primary"(click)="save()">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+      </button>
+      <button class="btn btn-default"(click)="crud_operation.is_visible = false">
+        <i class="fa fa-ban" aria-hidden="true"></i>
+        Cancel
+      </button>
+    </div>
+    <table class="table table-striped table-hover">
+      <tr>
+          <th>Id</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Start-date</th>
+        <th>Number-people</th>
+        <th class="text-right">
+          <button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        </th>
+      </tr>
+      <tr *ngFor="let row of data">
+          <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.icon}}</td>
+        <td>{{row.date}}</td>
+         <td>{{row.people}}</td>
+        <td class="text-right">
+          <div *ngIf="!row.confirm">
+            <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <a class="btn btn-info" [routerLink]="['/dashboard/', row.id, 'proyectos-crud']">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a> 
+             <a class="btn btn-primary" [routerLink]="['/reporte-proyecto/', row.id, 'proyectos-crud']">
+              <i class="fa fa-address-book" aria-hidden="true"></i>
+            </a>
+            </div>
+          <div *ngIf="row.confirm">
+            <button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
+            <button class="btn btn-success" (click)="delete(row)">Confirm</button>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="data.length == 0">
+        <td colspan="4" class="text-center">No data available</td>
+      </tr>
+    </table>

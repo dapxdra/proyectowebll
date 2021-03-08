@@ -13,6 +13,9 @@ import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { ProjectViewComponent } from './proyecto-view/project-view.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ProyectosService } from '@app/_services/proyecto.service';
+import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
+import { EstadosCrudComponent } from './estados-crud/estados-crud.component';
 
 @NgModule({
     imports: [
@@ -26,11 +29,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         AppComponent,
         AlertComponent,
         HomeComponent,
-        ProjectViewComponent
+        ProjectViewComponent,
+        ProyectosCrudComponent,
+        EstadosCrudComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        ProyectosService,
 
         // provider used to create fake backend
         fakeBackendProvider
