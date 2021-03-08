@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Estados } from '@app/_models/estados'
+import { Estado } from '@app/_models/estado'
 @Injectable({
   providedIn: 'root'
 })
 export class EstadosService {
-  data: Estados[];
+  data: Estado[];
   constructor() {
     this.data = JSON.parse(localStorage.getItem('estados') || '[]');
   }
@@ -14,7 +14,7 @@ export class EstadosService {
     return this.data;
   }
 
-  save(data: Estados[]) {
+  save(data: Estado[]) {
     this.data = data;
     localStorage.setItem('estados', JSON.stringify(this.data));
   }

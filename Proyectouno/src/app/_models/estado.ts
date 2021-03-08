@@ -1,4 +1,4 @@
-export class Estados {
+export class Estado {
 	id: string;
     description: string;
     order: string;

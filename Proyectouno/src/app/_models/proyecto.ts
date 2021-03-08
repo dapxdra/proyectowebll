@@ -1,4 +1,4 @@
-export class Proyectos {
+export class Proyecto {
     id: string;
     name: string;
     icon: string;

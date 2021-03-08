@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Estados } from '@app/_models/estados';
+import { Estado } from '@app/_models/estado';
 import { EstadosService } from '@app/_services/estados.service';
 
 @Component({
@@ -9,19 +9,19 @@ import { EstadosService } from '@app/_services/estados.service';
 })
 export class EstadosCrudComponent implements OnInit {
 
-  data: Estados[];
-  current_estados: Estados;
+  data: Estado[];
+  current_estados: Estado;
   crud_operation = { is_new: false, is_visible: false };
   constructor(private service: EstadosService) {
   }
 
   ngOnInit() {
     this.data = this.service.read();
-    this.current_estados = new Estados();
+    this.current_estados = new Estado();
   }
 
   new() {
-    this.current_estados = new Estados();
+    this.current_estados = new Estado();
     this.crud_operation.is_visible = true;
     this.crud_operation.is_new = true;
   }
@@ -46,7 +46,7 @@ export class EstadosCrudComponent implements OnInit {
       this.data.push(this.current_estados);
     }
     this.service.save(this.data);
-    this.current_estados = new Estados();
+    this.current_estados = new Estado();
     this.crud_operation.is_visible = false;
   }
 }
