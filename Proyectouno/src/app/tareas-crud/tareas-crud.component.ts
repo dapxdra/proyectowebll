@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tareas } from '@app/_models/tareas';
 import { TareasService } from '@app/_services/tareas.service';
 import {Router, ActivatedRoute} from '@angular/router';
@@ -11,6 +12,8 @@ import {User} from '@app/_models/user';
 })
 export class TareasCrudComponent implements OnInit {
 
+  
+  user: User;
   data: Tareas[];
   current_tareas: Tareas;
     tareas: Tareas;

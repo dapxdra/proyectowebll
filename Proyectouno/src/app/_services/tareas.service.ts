@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Proyectos } from '@app/_models/proyecto';
 import { Tareas } from '@app/_models/tareas';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { Tareas } from '@app/_models/tareas';
 })
 export class TareasService {
 
+  proyecto: Proyectos;
   data: Tareas[];
   prueba= [];
   constructor() {
@@ -21,7 +23,7 @@ read(id: String) {
   this.prueba = [];
   this.data = JSON.parse(localStorage.getItem('tareas') || '[]' );
   this.data.forEach(element => {
-    if (element.id_proyecto === id ) {
+    if (this.proyecto.id === element.id_proyecto.id ) {
       this.prueba.push(element)
     }
   });

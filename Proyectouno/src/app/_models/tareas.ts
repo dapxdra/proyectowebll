@@ -1,4 +1,5 @@
-//import { User } from "./user";
+import { Proyectos } from "./proyecto";
+import { User } from "./user";
 
 export class Tareas {
     id: string;
@@ -6,7 +7,7 @@ export class Tareas {
     status: string;
     users: string;
     description: string;
-    id_proyecto: string
+    id_proyecto: Proyectos;
     constructor() {
       // code...
     }

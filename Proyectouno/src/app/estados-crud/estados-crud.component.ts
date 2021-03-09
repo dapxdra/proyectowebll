@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Estado } from '@app/_models/estado';
+import { Proyectos } from '@app/_models/proyecto';
 import { EstadosService } from '@app/_services/estados.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { EstadosService } from '@app/_services/estados.service';
 })
 export class EstadosCrudComponent implements OnInit {
 
+  proyecto: Proyectos;
   data: Estado[];
   current_estados: Estado;
   crud_operation = { is_new: false, is_visible: false };
