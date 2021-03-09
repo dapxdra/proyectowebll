@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
-    { path: 'project-view', component: ProjectViewComponent },
+    { path: 'project-view/:id', component: ProjectViewComponent },
     { path: 'proyectos', component: ProyectosCrudComponent },
 
     // otherwise redirect to home

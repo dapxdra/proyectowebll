@@ -1,0 +1,18 @@
+<div class="form-inline" *ngIf="crud_operation.is_visible">
+    <legend>Task</legend>
+      <label>Id:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_tareas.id">
+      <label>Title</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_tareas.title">
+      <label>Description</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_tareas.description">
+  
+      <button class="btn btn-primary"(click)="save()">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+      </button>
+      <button class="btn btn-default"(click)="crud_operation.is_visible = false">
+        <i class="fa fa-ban" aria-hidden="true"></i>
+        Cancel
+      </button>
+    </div>

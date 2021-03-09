@@ -5,13 +5,20 @@ import { Estado } from '@app/_models/estado'
 })
 export class EstadosService {
   data: Estado[];
+  prueba= [];
   constructor() {
     this.data = JSON.parse(localStorage.getItem('estados') || '[]');
   }
 
-  read() {
-    this.data = JSON.parse(localStorage.getItem('estados') || '[]');
-    return this.data;
+  read(id: String) {
+    this.prueba = [];
+    this.data = JSON.parse(localStorage.getItem('estados') || '[]' );
+    this.data.forEach(element => {
+      if (element.id_proyecto === id) {
+        this.prueba.push(element)
+      }
+    });
+    return this.prueba
   }
 
   save(data: Estado[]) {

@@ -16,6 +16,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProyectosService } from '@app/_services/proyectos.service';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
 import { EstadosCrudComponent } from './estados-crud/estados-crud.component';
+import { TareasCrudComponent } from './tareas-crud/tareas-crud.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { EstadosCrudComponent } from './estados-crud/estados-crud.component';
         HomeComponent,
         ProjectViewComponent,
         ProyectosCrudComponent,
-        EstadosCrudComponent
+        EstadosCrudComponent,
+        TareasCrudComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
