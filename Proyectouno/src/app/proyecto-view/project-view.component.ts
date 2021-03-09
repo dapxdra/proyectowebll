@@ -14,12 +14,12 @@ import {ActivatedRoute} from '@angular/router';
 
 export class ProjectViewComponent implements OnInit {
 
-  estado:Estado;
+ /* estado:Estado;
   private prueba: any;
    id:string;
   constructor(private route: ActivatedRoute,
               private gs: EstadosService) {
-              }
+              }*/
 
 
 
@@ -37,17 +37,31 @@ export class ProjectViewComponent implements OnInit {
   ]);*/
  
 
-  /*board: Board = new Board('Tareas', [
-    new Column('Ideas', [
-      //cargar tareas
+  board: Board = new Board('Tareas', [
+    new Column('To Do', [
+      "Some random idea",
+      "This is another random idea",
+      "build an awesome application"
     ]),
-    new Column('Research', [
+    new Column('In Progress', [
+      "Lorem ipsum",
+      "foo",
+      "This was in the 'Research' column"
     ]),
-    new Column('Todo', [
+    new Column('Code Review', [
+      'Get to work',
+      'Pick up groceries',
+      'Go home',
+      'Fall asleep'
     ]),
     new Column('Done', [
+      'Get up',
+      'Brush teeth',
+      'Take a shower',
+      'Check e-mail',
+      'Walk dog'
     ])
-  ]);*/
+  ]);
 
 //para que funcione primero, pero no se adapta al board que hay 
 /*ngOnInit() {

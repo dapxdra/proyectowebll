@@ -10,15 +10,16 @@ export class EstadosService {
     this.data = JSON.parse(localStorage.getItem('estados') || '[]');
   }
 
-  read(id: String) {
-    this.prueba = [];
+  read() {
+    //this.prueba = [];
     this.data = JSON.parse(localStorage.getItem('estados') || '[]' );
-    this.data.forEach(element => {
-      if (element.id_proyecto === id) {
-        this.prueba.push(element)
-      }
-    });
-    return this.prueba
+    //this.data.forEach(element => {
+      //if (element.id_proyecto === id) {
+        //this.prueba.push(element)
+      //}
+    //});
+    //return this.prueba
+    return this.data;
   }
 
   save(data: Estado[]) {

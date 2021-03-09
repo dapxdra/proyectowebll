@@ -1,1 +1,49 @@
-<p>estados-crud works!</p>
+<div class="form-inline" *ngIf="crud_operation.is_visible">
+    <legend>Statuses</legend>
+      <label>Id:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_estados.id">
+      <label>Title:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_estados.description">
+      <label>Description:</label>
+      <input class="form-control" type="text" size="5px" [(ngModel)]="current_estados.order">
+      <button class="btn btn-primary"(click)="save()">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Save
+      </button>
+      <button class="btn btn-default"(click)="crud_operation.is_visible = false">
+        <i class="fa fa-ban" aria-hidden="true"></i>
+        Cancel
+      </button>
+    </div>
+    <table class="table table-striped table-hover">
+      <tr>
+          <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th class="text-right">
+          <button class="btn btn-success" (click)="new()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        </th>
+      </tr>
+      <tr *ngFor="let row of data">
+          <td>{{row.id}}</td>
+        <td>{{row.title}}</td>
+        <td>{{row.description}}</td>
+        <td class="text-right">
+          <div *ngIf="!row.confirm">
+            <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <a class="btn btn-info" [routerLink]="['/dashboard/']">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div *ngIf="row.confirm">
+            <button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
+            <button class="btn btn-success" (click)="delete(row)">Confirm</button>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="data.length == 0">
+        <td colspan="4" class="text-center">No data available</td>
+      </tr>
+    </table>
